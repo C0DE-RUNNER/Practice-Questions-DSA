@@ -28,32 +28,31 @@ Testcase 1: After segragating the 0s, 1s and 2s, we have 0 0 1 2 2 which shown i
 
 **************************************************************************************************
 
-
-#include <iostream>
-using namespace std;
-
-int main() {
-    int t;
-    cin>>t;
-    while(t--){
-        int n,c1=0,c2=0;
-        cin>>n;
-        int a[n];
-        for(int i=0;i<n;i++){
-            cin>>a[i];
-            if(a[i]==1)
-            c1++;
-            else if(a[i]==2)
-            c2++;
+void sort012(int a[], int n)
+{
+    int c0=0,c1=0,c2=0;
+    for(int i=0;i<n;i++){
+        if(a[i]==0)
+        c0++;
+        else if(a[i]==1)
+        c1++;
+        else c2++;
+    }
+    int i=0;
+        while(c0>0){
+            a[i]=0;
+            c0--;
+            i++;
         }
-        for(int i=0;i<n-c1-c2;i++)
-        cout<<0<<" ";
-        for(int i=0;i<c1;i++)
-        cout<<1<<" ";
-        for(int i=0;i<c2;i++)
-        cout<<2<<" ";
-        cout<<endl;
-}
-
-return 0;
+         while(c1>0){
+            a[i]=1;
+            c1--;
+            i++;
+        }
+        while(c2>0){
+            a[i]=2;
+            c2--;
+            i++;
+        }
+    // coode here 
 }
