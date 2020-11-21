@@ -33,7 +33,7 @@ int triplet(int a[], int n){
             }
 
         }
-        if(c>0)
+        if(c>=0)
          return c;
          else
          return -1;
