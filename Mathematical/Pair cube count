@@ -35,7 +35,18 @@ Expected Auxiliary Space: O(1)
 Constraints:
 1 <= N <= 105
 
-**********************************************************************************************************************************
+***************************************************************************************************************************************************
+Travers numbers from 1 to cube root of N. 
+  a) Subtract cube of current number from 
+    N and check if their difference is a 
+    perfect cube or not.
+      i) If perfect cube then increment count.
+
+2- Return count.
+
+***************************************************************************************************************************************************
+
+
 
 int pairCubeCount(int N) {
         int c=0;
