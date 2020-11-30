@@ -1,0 +1,51 @@
+Given a positive integer N, find the sum of all prime numbers between 1 and N(inclusive).
+ 
+
+Example 1:
+
+Input: N = 5
+Output: 10
+Explanation: 2, 3, and 5 are prime
+numbers between 1 and 5(inclusive).
+Example 2:
+
+Input: N = 10
+Output: 17
+Explanation: 2, 3, 5 and 7 are prime
+numbers between 1 and 10(inclusive).
+ 
+
+Your Task:
+You don't need to read or print anyhting. Your task is to complete the function prime_Sum() which takes N as input parameter and returns the sum of all primes between 1 and N(inclusive).
+ 
+
+Expected Time Complexity: O(N*log(N))
+Expected Space Complexity: O(N)
+
+Constraints:
+1 <= N <= 1000000
+
+
+
+****************************************************************************************************************************************
+
+
+long long int prime_Sum(int n){
+   	     bool prime[n + 1]; 
+ 
+    memset(prime, true, n + 1); 
+  
+    for (int p = 2; p * p <= n; p++) { 
+ 
+        if (prime[p] == true) { 
+            for (int i = p * 2; i <= n; i += p) 
+                prime[i] = false; 
+        } 
+    } 
+    long long int sum = 0; 
+    for (long long int i = 2; i <= n; i++) 
+        if (prime[i]) 
+            sum += i; 
+    return sum; 
+   	    // Code here
+   	}    
