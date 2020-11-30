@@ -23,9 +23,9 @@ Constraints:
 
 *********************************************************************************************************************************************
 
-**An efficient solution will be using the bit count in the binary representation of
+An efficient solution will be using the bit count in the binary representation of
 the number.If the difference between the count of set bits at odd position and the
-count of set bits at even position is a multiple of 3 then the number is a multiple of 3.**
+count of set bits at even position is a multiple of 3 then the number is a multiple of 3.
 
 *********************************************************************************************************************************************
 int isDivisible(string s){
