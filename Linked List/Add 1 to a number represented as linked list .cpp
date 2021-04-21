@@ -21,7 +21,7 @@ Constraints:
 1 <= N <= 101000
   
   ******************************************************************************************************************************************
-  
+ //Method 1 
   Node* addOne(Node *head) 
     {
         vector<int> v;
@@ -59,4 +59,55 @@ Constraints:
         }
         
         return head;
+    }
+
+
+
+//Method 2
+
+Node* reverse(Node* head){
+        if(head==NULL)
+        return head;
+        Node* next=NULL,*prev=NULL, *curr=head;
+        
+        while(curr){
+            next=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=next;
+        }
+        return prev;
+    }
+    Node* addOne(Node *head) 
+    {
+        if(head==NULL)
+        return head;
+        head = reverse(head);
+        
+        if(head->data<9){
+            head->data+=1;
+            head=reverse(head);
+            return head;
+        }
+        else{
+            Node* temp=head;
+            while(temp!=NULL && temp->data==9){
+                temp->data=0;
+                temp=temp->next;
+            }
+            if(temp!=NULL)
+            temp->data+=1;
+            else{
+                head=reverse(head);
+                Node* h=new Node(1);
+                h->next=head;
+                head=h;
+                return head;
+            }
+        }
+        head=reverse(head);
+        return head;
+        
+        // Your Code here
+        // return head of list after adding one
     }
